@@ -18,8 +18,9 @@ public class Usuario {
     @Column(name = "senha_hash", nullable = false)
     private String senhaHash;
 
-    @Column(nullable = false)
-    private String role;
+    @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "varchar role IN ('ADMIN', 'CLIENTE', 'MOTORISTA'))")
+    private Role role;
 
     public Long getId() {
         return id;
@@ -37,7 +38,7 @@ public class Usuario {
     public String getSenhaHash() { return senhaHash; }
     public void setSenhaHash(String senhaHash) { this.senhaHash = senhaHash; }
 
-    public String getRole() { return role; }
-    public void setRole(String role) { this.role = role; }
+    public Role getRole() { return role; }
+    public void setRole(Role role) { this.role = role; }
 
 }

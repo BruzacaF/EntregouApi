@@ -1,6 +1,9 @@
 package Entregou.database.controller;
 
+import Entregou.database.dto.UsuarioResponse;
 import Entregou.database.model.Usuario;
+import Entregou.database.service.AdminService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RestController;
 import Entregou.database.repository.UsuarioRepository;
 import org.springframework.web.bind.annotation.*;
@@ -11,15 +14,18 @@ import java.util.List;
 @RequestMapping("/api/usuarios")
 public class UsuarioController {
 
+    private final AdminService adminService;
     private final UsuarioRepository usuarioRepository;
 
-    public UsuarioController(UsuarioRepository usuarioRepository) {
+    public UsuarioController(UsuarioRepository usuarioRepository, AdminService adminService) {
         this.usuarioRepository = usuarioRepository;
+        this.adminService = adminService;
     }
 
     @GetMapping
-    public List<Usuario> listar() {
-        return usuarioRepository.findAll();
+    @PreAuthorize("hasRole('ADMIN')")
+    public List<UsuarioResponse> listar() {
+        return adminService.listarUsuarios();
     }
 
     @PostMapping

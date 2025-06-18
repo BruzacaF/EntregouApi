@@ -2,19 +2,25 @@ package Entregou.database.model;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "motorista")
 public class Motorista {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id_usuario")
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "usuario_id", nullable = false, unique = true)
+    @MapsId
+    @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 
-    private String telefone;
+    private String cnh;
+    private String categoriaCnh;
+    private LocalDate validadeCnh;
+    private BigDecimal avaliacaoMedia;
 
     @ManyToOne
     @JoinColumn(name = "veiculo_id")
@@ -26,8 +32,6 @@ public class Motorista {
     public Usuario getUsuario() { return usuario; }
     public void setUsuario(Usuario usuario) { this.usuario = usuario; }
 
-    public String getTelefone() { return telefone; }
-    public void setTelefone(String telefone) { this.telefone = telefone; }
 
     public Veiculo getVeiculo() { return veiculo; }
     public void setVeiculo(Veiculo veiculo) { this.veiculo = veiculo; }

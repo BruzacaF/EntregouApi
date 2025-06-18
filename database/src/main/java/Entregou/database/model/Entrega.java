@@ -17,7 +17,7 @@ public class Entrega {
     private Pacote pacote;
 
     @ManyToOne
-    @JoinColumn(name = "motorista_id")
+    @JoinColumn(name = "id_motorista")
     private Motorista motorista;
 
     @ManyToOne
