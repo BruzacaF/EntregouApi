@@ -1,8 +1,10 @@
 package Entregou.database.controller;
 
+import Entregou.database.dto.ClienteDto;
 import Entregou.database.dto.UsuarioResponse;
 import Entregou.database.model.Usuario;
 import Entregou.database.service.AdminService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RestController;
 import Entregou.database.repository.UsuarioRepository;
@@ -26,6 +28,12 @@ public class UsuarioController {
     @PreAuthorize("hasRole('ADMIN')")
     public List<UsuarioResponse> listar() {
         return adminService.listarUsuarios();
+    }
+
+
+    @GetMapping("/autocomplete")
+    public ResponseEntity<List<ClienteDto>> autocomplete(@RequestParam String termo) {
+        return ResponseEntity.ok(adminService.autocompletarClientes(termo));
     }
 
     @PostMapping

@@ -3,7 +3,7 @@
   <component name="JpaBuddyIdeaProjectConfig" newRepositoryParent="org.springframework.data.jpa.repository.JpaRepository">
     <option name="newEntityIdStrategy" value="Identity" />
     <option name="newEntityIdType" value="Long" />
-    <option name="reLastEntityCreationPackage" value="database/src/Entregou/database/model" />
-    <option name="reverseEngineeringLastDbConnectionId" value="2f55b39d-6303-4ced-867b-30c4838d1073" />
+    <option name="reLastEntityCreationPackage" value="database/src/main/java/Entregou/database/model" />
+    <option name="reverseEngineeringLastDbConnectionId" value="3da163c0-1181-4e89-abb3-8a00511b2296" />
   </component>
 </project>

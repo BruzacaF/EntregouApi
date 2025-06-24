@@ -36,7 +36,6 @@ public class ClienteController {
     @PutMapping("/{id}")
     public Cliente atualizar(@PathVariable Long id, @RequestBody Cliente novo) {
         return clienteRepository.findById(id).map(cliente -> {
-            cliente.setTelefone(novo.getTelefone());
             cliente.setUsuario(novo.getUsuario());
             return clienteRepository.save(cliente);
         }).orElse(null);

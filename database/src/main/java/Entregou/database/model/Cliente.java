@@ -7,15 +7,22 @@ import jakarta.persistence.*;
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id_usuario", nullable = false)
     private Long id;
 
 
     @OneToOne
-    @JoinColumn(name = "usuario_id", nullable = false, unique = true)
+    @MapsId
+    @JoinColumn(name = "id_usuario", nullable = false, unique = true)
     private Usuario usuario;
 
-    private String telefone;
+    private String tipoPessoa;
+    private String cpfCnpj;
+
+    private String getCpfCnpj() { return cpfCnpj; } ;
+    private String getTipoPessoa() { return tipoPessoa; } ;
+
+
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -23,8 +30,6 @@ public class Cliente {
     public Usuario getUsuario() { return usuario; }
     public void setUsuario(Usuario usuario) { this.usuario = usuario; }
 
-    public String getTelefone() { return telefone; }
-    public void setTelefone(String telefone) { this.telefone = telefone; }
 
 
 }

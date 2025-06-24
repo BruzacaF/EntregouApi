@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="5dbe74e4-c589-42a5-a788-b6ea0f06aa1a" name="EntregouDatabase@localhost [2] Mapping">
+      <data-sources db="3da163c0-1181-4e89-abb3-8a00511b2296" ddl="a09c719a-3095-4082-9174-f8f0970b17d1" />
+      <scope>
+        <node kind="database" qname="EntregouDatabase">
+          <node kind="schema" negative="1" />
+        </node>
+      </scope>
+    </mapping>
+  </component>
+</project>
