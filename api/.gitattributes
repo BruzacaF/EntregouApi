@@ -1,0 +1,5 @@
+/mvnw text eol=lf
+*.cmd text eol=crlf
+*.properties text eol=lf
+*.yml text eol=lf
+*.sql text eol=lf
