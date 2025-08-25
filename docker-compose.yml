@@ -8,9 +8,7 @@ services:
       POSTGRES_PASSWORD: 1307
       POSTGRES_DB: entregou
     ports:
-      - "5432:5432"
-    volumes:
-      - ./init-db:/docker-entrypoint-initdb.d
+      - "5433:5432"
     networks:
       - rede_api
 
