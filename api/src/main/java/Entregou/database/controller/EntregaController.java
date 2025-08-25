@@ -60,12 +60,10 @@ class EntregaController {
     @PutMapping("/{id}")
     public Entrega atualizar(@PathVariable Long id, @RequestBody Entrega novo) {
         return entregaRepository.findById(id).map(entrega -> {
-            entrega.setDataSaida(novo.getDataSaida());
-            entrega.setDataEntrega(novo.getDataEntrega());
-            entrega.setObservacoes(novo.getObservacoes());
+            entrega.setDataEntregaPrevista(novo.getDataEntregaPrevista());
+            entrega.setDataEntregaReal(novo.getDataEntregaReal());
             entrega.setMotorista(novo.getMotorista());
-            entrega.setPacote(novo.getPacote());
-            entrega.setStatus(novo.getStatus());
+            entrega.setStatusEntrega(novo.getStatusEntrega());
             return entregaRepository.save(entrega);
         }).orElse(null);
     }
