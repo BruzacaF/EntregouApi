@@ -1,6 +1,7 @@
 package Entregou.database.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.time.LocalDateTime;
 
@@ -13,44 +14,63 @@ public class Entrega {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "pacote_id", nullable = false)
-    private Pacote pacote;
-
-    @ManyToOne
     @JoinColumn(name = "id_motorista")
     private Motorista motorista;
 
     @ManyToOne
-    @JoinColumn(name = "status_id")
-    private StatusEntrega status;
+    @JoinColumn(name = "id_veiculo")
+    private Veiculo veiculo;
 
-    @Column(name = "data_saida", nullable = false)
-    private LocalDateTime dataSaida;
+    @Column(name = "data_coleta")
+    private LocalDateTime dataColeta;
 
-    @Column(name = "data_entrega")
-    private LocalDateTime dataEntrega;
+    @Column(name = "data_entrega_prevista")
+    private LocalDateTime dataEntregaPrevista;
 
-    private String observacoes;
+    @Column(name = "data_entrega_real")
+    private LocalDateTime dataEntregaReal;
 
+    @Column(name = "status_entrega", length = 50)
+    private String statusEntrega;
+
+    @Column(name = "motivo_atraso", columnDefinition = "TEXT")
+    private String motivoAtraso;
+
+    @Column(name = "geolocalizacao_eventos", columnDefinition = "TEXT")
+    private String geolocalizacaoEventos;
+
+    @ColumnDefault("false")
+    @Column(name = "recusado")
+    private Boolean recusado;
+
+    // Getters e Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
-
-    public Pacote getPacote() { return pacote; }
-    public void setPacote(Pacote pacote) { this.pacote = pacote; }
 
     public Motorista getMotorista() { return motorista; }
     public void setMotorista(Motorista motorista) { this.motorista = motorista; }
 
-    public StatusEntrega getStatus() { return status; }
-    public void setStatus(StatusEntrega status) { this.status = status; }
+    public Veiculo getVeiculo() { return veiculo; }
+    public void setVeiculo(Veiculo veiculo) { this.veiculo = veiculo; }
 
-    public LocalDateTime getDataSaida() { return dataSaida; }
-    public void setDataSaida(LocalDateTime dataSaida) { this.dataSaida = dataSaida; }
+    public LocalDateTime getDataColeta() { return dataColeta; }
+    public void setDataColeta(LocalDateTime dataColeta) { this.dataColeta = dataColeta; }
 
-    public LocalDateTime getDataEntrega() { return dataEntrega; }
-    public void setDataEntrega(LocalDateTime dataEntrega) { this.dataEntrega = dataEntrega; }
+    public LocalDateTime getDataEntregaPrevista() { return dataEntregaPrevista; }
+    public void setDataEntregaPrevista(LocalDateTime dataEntregaPrevista) { this.dataEntregaPrevista = dataEntregaPrevista; }
 
-    public String getObservacoes() { return observacoes; }
-    public void setObservacoes(String observacoes) { this.observacoes = observacoes; }
+    public LocalDateTime getDataEntregaReal() { return dataEntregaReal; }
+    public void setDataEntregaReal(LocalDateTime dataEntregaReal) { this.dataEntregaReal = dataEntregaReal; }
 
+    public String getStatusEntrega() { return statusEntrega; }
+    public void setStatusEntrega(String statusEntrega) { this.statusEntrega = statusEntrega; }
+
+    public String getMotivoAtraso() { return motivoAtraso; }
+    public void setMotivoAtraso(String motivoAtraso) { this.motivoAtraso = motivoAtraso; }
+
+    public String getGeolocalizacaoEventos() { return geolocalizacaoEventos; }
+    public void setGeolocalizacaoEventos(String geolocalizacaoEventos) { this.geolocalizacaoEventos = geolocalizacaoEventos; }
+
+    public Boolean getRecusado() { return recusado; }
+    public void setRecusado(Boolean recusado) { this.recusado = recusado; }
 }

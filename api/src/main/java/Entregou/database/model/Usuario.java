@@ -10,16 +10,17 @@ public class Usuario {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(name = "nome", nullable = false, length = 100)
     private String nome;
 
-    @Column(unique = true, nullable = false)
+    @Column(name = "email", unique = true, nullable = false, length = 100)
     private String email;
 
-    @Column(name = "senha_hash", nullable = false)
+    @Column(name = "senha_hash", nullable = false, columnDefinition = "TEXT")
     private String senhaHash;
 
     @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "varchar role IN ('ADMIN', 'CLIENTE', 'MOTORISTA'))")
+    @Column(name = "role", nullable = false, length = 50)
     private Role role;
 
     public Long getId() {

@@ -20,7 +20,14 @@ public class Cliente {
     private String cpfCnpj;
 
     private String getCpfCnpj() { return cpfCnpj; } ;
+    public void setCpfCnpj(String cpfCnpj) {
+        this.cpfCnpj = cpfCnpj;
+    }
+
     private String getTipoPessoa() { return tipoPessoa; } ;
+    public void setTipoPessoa(String novoTipo){
+        this.tipoPessoa = novoTipo;
+    }
 
 
 
