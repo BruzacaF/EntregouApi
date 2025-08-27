@@ -13,6 +13,7 @@ public interface PacoteRepository extends JpaRepository<Pacote, Long> {
 
     @Query(value = """
     SELECT 
+        p.id,
         u_dest.nome AS nomeDestinatario, 
         u_rem.nome AS nomeRemetente, 
         p.tipo_pacote, 

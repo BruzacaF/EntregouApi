@@ -6,6 +6,7 @@ import java.io.Serializable;
  * DTO for {@link Entregou.database.model.Pacote}
  */
 public class PacoteResponse implements Serializable {
+    private final Long id;
     private final String destinatario;
     private final String remetente;
     private final String tipoPacote;
@@ -15,12 +16,14 @@ public class PacoteResponse implements Serializable {
 
 
 
-    public PacoteResponse(String destinatario,
+    public PacoteResponse(Long id,
+                          String destinatario,
                           String remetente,
                           String tipoPacote,
                           String codigoRastreio,
                           String descricaoConteudo,
                           Boolean prioridade) {
+        this.id = id;
         this.destinatario = destinatario;
         this.remetente = remetente;
         this.tipoPacote = tipoPacote;
@@ -28,6 +31,8 @@ public class PacoteResponse implements Serializable {
         this.descricaoConteudo = descricaoConteudo;
         this.prioridade = prioridade;
     }
+
+    public Long getId() { return this.id; }
 
     public String getDestinatario() {
         return destinatario;

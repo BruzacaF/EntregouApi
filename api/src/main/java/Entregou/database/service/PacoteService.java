@@ -69,13 +69,18 @@ public class PacoteService {
 
         return resultados.stream()
                 .map(obj -> new PacoteResponse(
-                        (String) obj[0],  // nomeDestinatario
-                        (String) obj[1],  // nomeRemetente
-                        (String) obj[2],  // tipoPacote
-                        (String) obj[3],  // codigoRastreio
-                        (String) obj[4],  // descricaoConteudo
-                        (Boolean) obj[5]   // prioridade
+                        (Long) obj[0], // id
+                        (String) obj[1],  // nomeDestinatario
+                        (String) obj[2],  // nomeRemetente
+                        (String) obj[3],  // tipoPacote
+                        (String) obj[4],  // codigoRastreio
+                        (String) obj[5],  // descricaoConteudo
+                        (Boolean) obj[6]   // prioridade
                 )).toList();
+    }
+
+    public void removerPorId(Long id){
+        pacoteRepository.deleteById(id);
     }
 
 //    public List<PacoteResponse> listarMeusPacotesRecebidos(String email){

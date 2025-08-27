@@ -38,6 +38,12 @@ class PacoteController {
 
     }
 
+    @DeleteMapping("/{id}")
+    public void remover(@PathVariable Long id) {
+        pacoteService.removerPorId(id);
+    }
+
+
 //    @GetMapping("/destinatario")
 //    public List<PacoteResponse> listarMeusPacotesDestinatario(){
 //        String email = SecurityContextHolder.getContext().getAuthentication().getName();
