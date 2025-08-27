@@ -16,9 +16,9 @@ public class EntregaService {
     private final UsuarioRepository usuarioRepository;
     private final MotoristaRepository motoristaRepository;
 
-    public EntregaService(EntregaRepository entregaRepository, UsuarioRepository UsuarioRepository, MotoristaRepository motoristaRepository) {
+    public EntregaService(EntregaRepository entregaRepository, UsuarioRepository usuarioRepository, MotoristaRepository motoristaRepository) {
         this.entregaRepository = entregaRepository;
-        this.usuarioRepository = UsuarioRepository;
+        this.usuarioRepository = usuarioRepository;
         this.motoristaRepository = motoristaRepository;
     }
 
